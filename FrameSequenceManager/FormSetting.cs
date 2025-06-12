@@ -14,20 +14,25 @@ namespace FrameSequenceManager {
         public FormSetting() {
             InitializeComponent();
 
-            if(!string.IsNullOrEmpty(FormMain.AePath))
-                textBoxAePath.Text = FormMain.AePath;
-            else
-                textBoxAePath.Text = string.Empty;
+            InitializeValue();
         }
 
-        private void ButtonAePathAuto_Click(object sender, EventArgs e) {
+        private void InitializeValue() {
+            textBoxCurrentPath.Text = AppDomain.CurrentDomain.BaseDirectory;
+            textBoxAePath.Text = !string.IsNullOrEmpty(FormMain.AePath) ? FormMain.AePath : string.Empty;
+            textBoxDataBase.Text = "";
+            textBoxLibrary.Text = "";
+            textBoxConfig.Text = "";
+        }
+
+        private void ButtonAePathDetect_Click(object sender, EventArgs e) {
             textBoxAePath.Text = string.Empty;
 
             FormMain.AePath = Utils.GetAePath();
             if(!string.IsNullOrEmpty(FormMain.AePath))
                 textBoxAePath.Text = FormMain.AePath;
             else
-                MessageBox.Show("未找到AE路径，请手动设置");
+                MessageBox.Show("未检测到AE，请启动AE后再试");
         }
 
         private void ButtonAePathChoose_Click(object sender, EventArgs e) {

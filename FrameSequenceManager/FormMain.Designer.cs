@@ -30,9 +30,6 @@
             menuItemImport = new ToolStripMenuItem();
             menuItemSetting = new ToolStripMenuItem();
             menuItemQuit = new ToolStripMenuItem();
-            menuItemEdit = new ToolStripMenuItem();
-            menuItemHelp = new ToolStripMenuItem();
-            menuItemAbout = new ToolStripMenuItem();
             flowLayoutPanel1 = new FlowLayoutPanel();
             tableLayoutContent = new TableLayoutPanel();
             groupBoxControl = new GroupBox();
@@ -51,6 +48,12 @@
             button1 = new Button();
             groupBoxPicture = new GroupBox();
             tableLayoutMain = new TableLayoutPanel();
+            menuItemAbout = new ToolStripMenuItem();
+            menuItemHelp = new ToolStripMenuItem();
+            menuItemRename = new ToolStripMenuItem();
+            menuItemEdit = new ToolStripMenuItem();
+            menuItemDelete = new ToolStripMenuItem();
+            toolStripSeparator1 = new ToolStripSeparator();
             statusStrip.SuspendLayout();
             menuStrip.SuspendLayout();
             tableLayoutContent.SuspendLayout();
@@ -91,51 +94,30 @@
             // 
             // menuItemFile
             // 
-            menuItemFile.DropDownItems.AddRange(new ToolStripItem[] { menuItemImport, menuItemSetting, menuItemQuit });
+            menuItemFile.DropDownItems.AddRange(new ToolStripItem[] { menuItemImport, toolStripSeparator1, menuItemSetting, menuItemQuit });
             menuItemFile.Name = "menuItemFile";
-            menuItemFile.Size = new Size(44, 24);
-            menuItemFile.Text = "文件";
+            menuItemFile.Size = new Size(58, 24);
+            menuItemFile.Text = "文件(&F)";
             // 
             // menuItemImport
             // 
             menuItemImport.Name = "menuItemImport";
             menuItemImport.Size = new Size(180, 22);
-            menuItemImport.Text = "导入";
+            menuItemImport.Text = "导入(&R)";
             // 
             // menuItemSetting
             // 
             menuItemSetting.Name = "menuItemSetting";
             menuItemSetting.Size = new Size(180, 22);
-            menuItemSetting.Text = "设置";
+            menuItemSetting.Text = "设置(&S)";
             menuItemSetting.Click += MenuItemSetting_Click;
             // 
             // menuItemQuit
             // 
             menuItemQuit.Name = "menuItemQuit";
             menuItemQuit.Size = new Size(180, 22);
-            menuItemQuit.Text = "退出";
+            menuItemQuit.Text = "退出(&X)";
             menuItemQuit.Click += MenuItemQuit_Click;
-            // 
-            // menuItemEdit
-            // 
-            menuItemEdit.Name = "menuItemEdit";
-            menuItemEdit.Size = new Size(44, 24);
-            menuItemEdit.Text = "编辑";
-            // 
-            // menuItemHelp
-            // 
-            menuItemHelp.DropDownItems.AddRange(new ToolStripItem[] { menuItemAbout });
-            menuItemHelp.Name = "menuItemHelp";
-            menuItemHelp.ShortcutKeyDisplayString = "";
-            menuItemHelp.Size = new Size(44, 24);
-            menuItemHelp.Text = "帮助";
-            // 
-            // menuItemAbout
-            // 
-            menuItemAbout.Name = "menuItemAbout";
-            menuItemAbout.ShortcutKeyDisplayString = "";
-            menuItemAbout.Size = new Size(100, 22);
-            menuItemAbout.Text = "关于";
             // 
             // flowLayoutPanel1
             // 
@@ -361,7 +343,46 @@
             tableLayoutMain.Size = new Size(784, 521);
             tableLayoutMain.TabIndex = 35;
             // 
-            // Form1
+            // menuItemAbout
+            // 
+            menuItemAbout.Name = "menuItemAbout";
+            menuItemAbout.ShortcutKeyDisplayString = "";
+            menuItemAbout.Size = new Size(180, 22);
+            menuItemAbout.Text = "关于(&A)";
+            // 
+            // menuItemHelp
+            // 
+            menuItemHelp.DropDownItems.AddRange(new ToolStripItem[] { menuItemAbout });
+            menuItemHelp.Name = "menuItemHelp";
+            menuItemHelp.ShortcutKeyDisplayString = "";
+            menuItemHelp.Size = new Size(61, 24);
+            menuItemHelp.Text = "帮助(&H)";
+            // 
+            // menuItemRename
+            // 
+            menuItemRename.Name = "menuItemRename";
+            menuItemRename.Size = new Size(180, 22);
+            menuItemRename.Text = "重命名(&R)";
+            // 
+            // menuItemEdit
+            // 
+            menuItemEdit.DropDownItems.AddRange(new ToolStripItem[] { menuItemRename, menuItemDelete });
+            menuItemEdit.Name = "menuItemEdit";
+            menuItemEdit.Size = new Size(59, 24);
+            menuItemEdit.Text = "编辑(&E)";
+            // 
+            // menuItemDelete
+            // 
+            menuItemDelete.Name = "menuItemDelete";
+            menuItemDelete.Size = new Size(180, 22);
+            menuItemDelete.Text = "删除(&D)";
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(177, 6);
+            // 
+            // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -369,7 +390,7 @@
             Controls.Add(tableLayoutMain);
             MainMenuStrip = menuStrip;
             MinimumSize = new Size(600, 420);
-            Name = "Form1";
+            Name = "FormMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "序列图片管理器";
             statusStrip.ResumeLayout(false);
@@ -398,7 +419,6 @@
         private MenuStrip menuStrip;
         private ToolStripMenuItem menuItemFile;
         private ToolStripMenuItem menuItemImport;
-        private ToolStripMenuItem menuItemEdit;
         private FlowLayoutPanel flowLayoutPanel1;
         private TableLayoutPanel tableLayoutContent;
         private TableLayoutPanel tableLayoutControl2;
@@ -418,9 +438,13 @@
         private Button button8;
         private GroupBox groupBoxControl;
         private ToolStripMenuItem menuItem1;
-        private ToolStripMenuItem menuItemHelp;
-        private ToolStripMenuItem menuItemAbout;
         private ToolStripMenuItem menuItemSetting;
         private ToolStripMenuItem menuItemQuit;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripMenuItem menuItemEdit;
+        private ToolStripMenuItem menuItemRename;
+        private ToolStripMenuItem menuItemDelete;
+        private ToolStripMenuItem menuItemHelp;
+        private ToolStripMenuItem menuItemAbout;
     }
 }

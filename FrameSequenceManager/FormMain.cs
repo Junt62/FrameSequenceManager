@@ -6,10 +6,17 @@ namespace FrameSequenceManager {
         public const string AeName = "AfterFX";
         public const string AeNameWithSuffix = "AfterFX.exe";
         public static string? AePath { get; set; }
+        public static string? DatabasePath { get; set; }
+        public static string? LibraryPath { get; set; }
+        public static string? ConfigPath { get; set; }
 
         public FormMain() {
             InitializeComponent();
 
+            InitializeValue();
+        }
+
+        private static void InitializeValue() {
             AePath = Utils.GetAePath();
         }
 
