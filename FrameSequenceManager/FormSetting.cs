@@ -24,13 +24,11 @@ namespace FrameSequenceManager {
                 MessageBox.Show("成功：检测到AE程序");
             }
             else {
-                MessageBox.Show("未检测到AE，请启动AE后再试");
+                MessageBox.Show("错误：未检测到AE，请启动AE后再试");
             }
         }
 
         private void ButtonAEPathSetting_Click(object sender, EventArgs e) {
-            textBoxAEPath.Text = string.Empty;
-
             using OpenFileDialog dlg = new OpenFileDialog() {
                 Title = "选择AE程序路径",
                 Filter = "所有支持的文件|*.exe"
@@ -54,8 +52,6 @@ namespace FrameSequenceManager {
         }
 
         private void ButtonLibraryPathSetting_Click(object sender, EventArgs e) {
-            textBoxLibraryPath.Text = string.Empty;
-
             using FolderBrowserDialog dlg = new FolderBrowserDialog() {
                 RootFolder = Environment.SpecialFolder.MyComputer,
                 ShowNewFolderButton = true
