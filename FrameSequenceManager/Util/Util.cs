@@ -4,16 +4,16 @@ using System.Runtime.Serialization;
 
 namespace FrameSequenceManager {
 
-    public static class Utils {
+    public partial class Util {
 
-        public static string? GetAePath() {
+        public static string GetAfterFXPath(string AEName) {
             try {
-                Process[] processes = Process.GetProcessesByName(FormMain.AeName);
+                Process[] processes = Process.GetProcessesByName(AEName);
                 var proc = processes.FirstOrDefault(x => {
                     try {
                         return string.Equals(
-                            Path.GetFileName(x.MainModule.FileName),
-                            FormMain.AeNameWithSuffix,
+                            Path.GetFileName(x.MainModule?.FileName),
+                            AEName + ".exe",
                             StringComparison.OrdinalIgnoreCase
                         );
                     }
@@ -21,10 +21,10 @@ namespace FrameSequenceManager {
                         return false;
                     }
                 });
-                return proc?.MainModule.FileName;
+                return proc?.MainModule?.FileName ?? "";
             }
             catch {
-                return null;
+                return "";
             }
         }
 

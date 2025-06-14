@@ -1,55 +1,71 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Diagnostics;
 
 namespace FrameSequenceManager {
+
     public partial class FormSetting : Form {
-        public FormSetting() {
+
+        private Config Config { get; }
+
+        public FormSetting(Config config) {
             InitializeComponent();
 
-            InitializeValue();
+            Config = config;
+            textBoxAEPath.Text = Config.AEPath;
+            textBoxLibraryPath.Text = Config.LibraryPath;
         }
 
-        private void InitializeValue() {
-            textBoxCurrentPath.Text = AppDomain.CurrentDomain.BaseDirectory;
-            textBoxAePath.Text = !string.IsNullOrEmpty(FormMain.AePath) ? FormMain.AePath : string.Empty;
-            textBoxDataBase.Text = "";
-            textBoxLibrary.Text = "";
-            textBoxConfig.Text = "";
-        }
+        private void ButtonAEPathDetect_Click(object sender, EventArgs e) {
+            textBoxAEPath.Text = string.Empty;
 
-        private void ButtonAePathDetect_Click(object sender, EventArgs e) {
-            textBoxAePath.Text = string.Empty;
-
-            FormMain.AePath = Utils.GetAePath();
-            if(!string.IsNullOrEmpty(FormMain.AePath))
-                textBoxAePath.Text = FormMain.AePath;
-            else
+            Config.AEPath = Util.GetAfterFXPath(Config.AeName);
+            if(!string.IsNullOrEmpty(Config.AEPath)) {
+                textBoxAEPath.Text = Config.AEPath;
+                Config.WriteConfig(Config);
+                MessageBox.Show("成功：检测到AE程序");
+            }
+            else {
                 MessageBox.Show("未检测到AE，请启动AE后再试");
+            }
         }
 
-        private void ButtonAePathChoose_Click(object sender, EventArgs e) {
-            textBoxAePath.Text = string.Empty;
+        private void ButtonAEPathSetting_Click(object sender, EventArgs e) {
+            textBoxAEPath.Text = string.Empty;
 
-            using OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Title = "选择AE程序路径";
-            dlg.Filter = "所有支持的文件|*.exe";
+            using OpenFileDialog dlg = new OpenFileDialog() {
+                Title = "选择AE程序路径",
+                Filter = "所有支持的文件|*.exe"
+            };
 
             if(dlg.ShowDialog() == DialogResult.OK) {
-                if(Path.GetFileName(dlg.FileName).Equals(FormMain.AeNameWithSuffix, StringComparison.OrdinalIgnoreCase)) {
-                    FormMain.AePath = dlg.FileName;
-                    textBoxAePath.Text = FormMain.AePath;
+                if(Path.GetFileName(dlg.FileName).Equals(Config.AeNameWithSuffix, StringComparison.OrdinalIgnoreCase)) {
+                    Config.AEPath = dlg.FileName;
+                    Config.WriteConfig(Config);
+                    textBoxAEPath.Text = Config.AEPath;
+                    MessageBox.Show("成功：已设置AE程序路径");
                 }
                 else {
                     MessageBox.Show("错误：选择的程序不正确");
                 }
+            }
+        }
+
+        private void ButtonLibraryPathOpen_Click(object sender, EventArgs e) {
+            Process.Start("explorer.exe", Config.LibraryPath);
+        }
+
+        private void ButtonLibraryPathSetting_Click(object sender, EventArgs e) {
+            textBoxLibraryPath.Text = string.Empty;
+
+            using FolderBrowserDialog dlg = new FolderBrowserDialog() {
+                RootFolder = Environment.SpecialFolder.MyComputer,
+                ShowNewFolderButton = true
+            };
+
+            if(dlg.ShowDialog() == DialogResult.OK) {
+                Config.LibraryPath = dlg.SelectedPath;
+                Config.WriteConfig(Config);
+                textBoxLibraryPath.Text = Config.LibraryPath;
+                MessageBox.Show("成功：已设置新的图片库文件夹");
             }
         }
     }

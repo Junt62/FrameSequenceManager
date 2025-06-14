@@ -1,0 +1,10 @@
+{
+  "Application": {
+    "Name": "FrameSequenceManager",
+    "Version": "1.0.0",
+    "AfterFXPath": "",
+    "DatabaseType": "SQLite",
+    "DatabasePath": "C:\\ProgramData\\FrameSequenceManager\\sqlite.db",
+    "LibraryPath": "C:\\ProgramData\\FrameSequenceManager\\Library"
+  }
+}
