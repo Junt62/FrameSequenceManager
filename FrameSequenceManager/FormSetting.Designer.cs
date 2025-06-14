@@ -32,16 +32,16 @@
             textBoxLibraryPath = new TextBox();
             buttonLibraryPathOpen = new Button();
             buttonLibraryPathSetting = new Button();
-            tabControlLocal = new TabControl();
-            tabPageLocal = new TabPage();
-            tabPage2 = new TabPage();
+            groupBoxAddressSetting = new GroupBox();
+            tableLayoutPanel2 = new TableLayoutPanel();
             tableLayoutPanel1.SuspendLayout();
-            tabControlLocal.SuspendLayout();
-            tabPageLocal.SuspendLayout();
+            groupBoxAddressSetting.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
+            tableLayoutPanel1.AutoSize = true;
             tableLayoutPanel1.ColumnCount = 4;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
@@ -56,15 +56,12 @@
             tableLayoutPanel1.Controls.Add(buttonLibraryPathOpen, 2, 1);
             tableLayoutPanel1.Controls.Add(buttonLibraryPathSetting, 3, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(3, 3);
+            tableLayoutPanel1.Location = new Point(3, 19);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 5;
+            tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(610, 225);
+            tableLayoutPanel1.Size = new Size(612, 58);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // labelLibraryPath
@@ -96,12 +93,12 @@
             textBoxAEPath.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxAEPath.Location = new Point(80, 3);
             textBoxAEPath.Name = "textBoxAEPath";
-            textBoxAEPath.Size = new Size(365, 23);
+            textBoxAEPath.Size = new Size(367, 23);
             textBoxAEPath.TabIndex = 1;
             // 
             // buttonAEPathDetect
             // 
-            buttonAEPathDetect.Location = new Point(451, 3);
+            buttonAEPathDetect.Location = new Point(453, 3);
             buttonAEPathDetect.Name = "buttonAEPathDetect";
             buttonAEPathDetect.Size = new Size(75, 23);
             buttonAEPathDetect.TabIndex = 3;
@@ -111,7 +108,7 @@
             // 
             // buttonAEPathSetting
             // 
-            buttonAEPathSetting.Location = new Point(532, 3);
+            buttonAEPathSetting.Location = new Point(534, 3);
             buttonAEPathSetting.Name = "buttonAEPathSetting";
             buttonAEPathSetting.Size = new Size(75, 23);
             buttonAEPathSetting.TabIndex = 2;
@@ -124,12 +121,12 @@
             textBoxLibraryPath.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxLibraryPath.Location = new Point(80, 32);
             textBoxLibraryPath.Name = "textBoxLibraryPath";
-            textBoxLibraryPath.Size = new Size(365, 23);
+            textBoxLibraryPath.Size = new Size(367, 23);
             textBoxLibraryPath.TabIndex = 15;
             // 
             // buttonLibraryPathOpen
             // 
-            buttonLibraryPathOpen.Location = new Point(451, 32);
+            buttonLibraryPathOpen.Location = new Point(453, 32);
             buttonLibraryPathOpen.Name = "buttonLibraryPathOpen";
             buttonLibraryPathOpen.Size = new Size(75, 23);
             buttonLibraryPathOpen.TabIndex = 16;
@@ -139,7 +136,7 @@
             // 
             // buttonLibraryPathSetting
             // 
-            buttonLibraryPathSetting.Location = new Point(532, 32);
+            buttonLibraryPathSetting.Location = new Point(534, 32);
             buttonLibraryPathSetting.Name = "buttonLibraryPathSetting";
             buttonLibraryPathSetting.Size = new Size(75, 23);
             buttonLibraryPathSetting.TabIndex = 17;
@@ -147,54 +144,49 @@
             buttonLibraryPathSetting.UseVisualStyleBackColor = true;
             buttonLibraryPathSetting.Click += ButtonLibraryPathSetting_Click;
             // 
-            // tabControlLocal
+            // groupBoxAddressSetting
             // 
-            tabControlLocal.Controls.Add(tabPageLocal);
-            tabControlLocal.Controls.Add(tabPage2);
-            tabControlLocal.Dock = DockStyle.Fill;
-            tabControlLocal.Location = new Point(0, 0);
-            tabControlLocal.Name = "tabControlLocal";
-            tabControlLocal.SelectedIndex = 0;
-            tabControlLocal.Size = new Size(624, 261);
-            tabControlLocal.TabIndex = 4;
+            groupBoxAddressSetting.AutoSize = true;
+            groupBoxAddressSetting.Controls.Add(tableLayoutPanel1);
+            groupBoxAddressSetting.Dock = DockStyle.Fill;
+            groupBoxAddressSetting.Location = new Point(3, 3);
+            groupBoxAddressSetting.Name = "groupBoxAddressSetting";
+            groupBoxAddressSetting.Size = new Size(618, 80);
+            groupBoxAddressSetting.TabIndex = 1;
+            groupBoxAddressSetting.TabStop = false;
+            groupBoxAddressSetting.Text = "路径设置";
             // 
-            // tabPageLocal
+            // tableLayoutPanel2
             // 
-            tabPageLocal.BackColor = Color.WhiteSmoke;
-            tabPageLocal.Controls.Add(tableLayoutPanel1);
-            tabPageLocal.Location = new Point(4, 26);
-            tabPageLocal.Name = "tabPageLocal";
-            tabPageLocal.Padding = new Padding(3);
-            tabPageLocal.Size = new Size(616, 231);
-            tabPageLocal.TabIndex = 0;
-            tabPageLocal.Text = "路径设置";
-            // 
-            // tabPage2
-            // 
-            tabPage2.BackColor = Color.WhiteSmoke;
-            tabPage2.Location = new Point(4, 26);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(616, 231);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
+            tableLayoutPanel2.ColumnCount = 1;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Controls.Add(groupBoxAddressSetting, 0, 0);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(0, 0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 2;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle());
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Size = new Size(624, 234);
+            tableLayoutPanel2.TabIndex = 18;
             // 
             // FormSetting
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(624, 261);
-            Controls.Add(tabControlLocal);
-            FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            ClientSize = new Size(624, 234);
+            Controls.Add(tableLayoutPanel2);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "FormSetting";
-            ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterParent;
             Text = "设置";
-            TopMost = true;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
-            tabControlLocal.ResumeLayout(false);
-            tabPageLocal.ResumeLayout(false);
+            groupBoxAddressSetting.ResumeLayout(false);
+            groupBoxAddressSetting.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -203,14 +195,13 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Label labelAEPath;
         private TextBox textBoxAEPath;
-        private TabControl tabControlLocal;
-        private TabPage tabPageLocal;
-        private TabPage tabPage2;
         private Button buttonAEPathSetting;
         private Button buttonAEPathDetect;
         private TextBox textBoxLibraryPath;
         private Label labelLibraryPath;
         private Button buttonLibraryPathSetting;
         private Button buttonLibraryPathOpen;
+        private GroupBox groupBoxAddressSetting;
+        private TableLayoutPanel tableLayoutPanel2;
     }
 }
