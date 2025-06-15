@@ -40,10 +40,10 @@
             tableLayoutContent = new TableLayoutPanel();
             groupBoxControl = new GroupBox();
             tableLayoutControl = new TableLayoutPanel();
-            button10 = new Button();
-            button9 = new Button();
             button8 = new Button();
             buttonRefresh = new Button();
+            button9 = new Button();
+            button10 = new Button();
             groupBoxControl2 = new GroupBox();
             tableLayoutControl2 = new TableLayoutPanel();
             button6 = new Button();
@@ -155,7 +155,7 @@
             // 
             menuItemAbout.Name = "menuItemAbout";
             menuItemAbout.ShortcutKeyDisplayString = "";
-            menuItemAbout.Size = new Size(180, 22);
+            menuItemAbout.Size = new Size(116, 22);
             menuItemAbout.Text = "关于(&A)";
             // 
             // flowLayoutPanel1
@@ -229,24 +229,6 @@
             tableLayoutControl.Size = new Size(772, 29);
             tableLayoutControl.TabIndex = 5;
             // 
-            // button10
-            // 
-            button10.Location = new Point(246, 3);
-            button10.Name = "button10";
-            button10.Size = new Size(75, 23);
-            button10.TabIndex = 8;
-            button10.Text = "button10";
-            button10.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            button9.Location = new Point(165, 3);
-            button9.Name = "button9";
-            button9.Size = new Size(75, 23);
-            button9.TabIndex = 7;
-            button9.Text = "button9";
-            button9.UseVisualStyleBackColor = true;
-            // 
             // button8
             // 
             button8.Location = new Point(84, 3);
@@ -264,6 +246,24 @@
             buttonRefresh.TabIndex = 5;
             buttonRefresh.Text = "button7";
             buttonRefresh.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            button9.Location = new Point(165, 3);
+            button9.Name = "button9";
+            button9.Size = new Size(75, 23);
+            button9.TabIndex = 7;
+            button9.Text = "button9";
+            button9.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            button10.Location = new Point(246, 3);
+            button10.Name = "button10";
+            button10.Size = new Size(75, 23);
+            button10.TabIndex = 8;
+            button10.Text = "button10";
+            button10.UseVisualStyleBackColor = true;
             // 
             // groupBoxControl2
             // 
