@@ -14,7 +14,7 @@ namespace FrameSequenceManager {
         [JsonIgnore] public string Version { get; } = "1.0.0";
         [JsonIgnore] public string ConfigPath { get; } = @"C:\ProgramData\FrameSequenceManager";
         [JsonIgnore] public string ConfigFilePath { get; } = @"C:\ProgramData\FrameSequenceManager\config.json";
-        [JsonIgnore] public string DatabasePath { get; } = @"C:\ProgramData\FrameSequenceManager\FrameSequenceManager.db";
+        [JsonIgnore] public string DatabasePath { get; } = @"C:\ProgramData\FrameSequenceManager\sqlite.db";
         [JsonIgnore] public string DatabaseType { get; } = "SQLite";
 
         public Config(string aePath = "", string libraryPath = @"C:\ProgramData\FSMLibrary") {

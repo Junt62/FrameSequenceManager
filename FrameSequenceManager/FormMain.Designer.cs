@@ -28,8 +28,14 @@
             menuStrip = new MenuStrip();
             menuItemFile = new ToolStripMenuItem();
             menuItemImport = new ToolStripMenuItem();
+            toolStripSeparator1 = new ToolStripSeparator();
             menuItemSetting = new ToolStripMenuItem();
             menuItemQuit = new ToolStripMenuItem();
+            menuItemEdit = new ToolStripMenuItem();
+            menuItemRename = new ToolStripMenuItem();
+            menuItemDelete = new ToolStripMenuItem();
+            menuItemHelp = new ToolStripMenuItem();
+            menuItemAbout = new ToolStripMenuItem();
             flowLayoutPanel1 = new FlowLayoutPanel();
             tableLayoutContent = new TableLayoutPanel();
             groupBoxControl = new GroupBox();
@@ -37,7 +43,7 @@
             button10 = new Button();
             button9 = new Button();
             button8 = new Button();
-            button7 = new Button();
+            buttonRefresh = new Button();
             groupBoxControl2 = new GroupBox();
             tableLayoutControl2 = new TableLayoutPanel();
             button6 = new Button();
@@ -48,12 +54,6 @@
             button1 = new Button();
             groupBoxPicture = new GroupBox();
             tableLayoutMain = new TableLayoutPanel();
-            menuItemAbout = new ToolStripMenuItem();
-            menuItemHelp = new ToolStripMenuItem();
-            menuItemRename = new ToolStripMenuItem();
-            menuItemEdit = new ToolStripMenuItem();
-            menuItemDelete = new ToolStripMenuItem();
-            toolStripSeparator1 = new ToolStripSeparator();
             statusStrip.SuspendLayout();
             menuStrip.SuspendLayout();
             tableLayoutContent.SuspendLayout();
@@ -102,22 +102,61 @@
             // menuItemImport
             // 
             menuItemImport.Name = "menuItemImport";
-            menuItemImport.Size = new Size(180, 22);
+            menuItemImport.Size = new Size(116, 22);
             menuItemImport.Text = "导入(&R)";
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(113, 6);
             // 
             // menuItemSetting
             // 
             menuItemSetting.Name = "menuItemSetting";
-            menuItemSetting.Size = new Size(180, 22);
+            menuItemSetting.Size = new Size(116, 22);
             menuItemSetting.Text = "设置(&S)";
             menuItemSetting.Click += MenuItemSetting_Click;
             // 
             // menuItemQuit
             // 
             menuItemQuit.Name = "menuItemQuit";
-            menuItemQuit.Size = new Size(180, 22);
+            menuItemQuit.Size = new Size(116, 22);
             menuItemQuit.Text = "退出(&X)";
             menuItemQuit.Click += MenuItemQuit_Click;
+            // 
+            // menuItemEdit
+            // 
+            menuItemEdit.DropDownItems.AddRange(new ToolStripItem[] { menuItemRename, menuItemDelete });
+            menuItemEdit.Name = "menuItemEdit";
+            menuItemEdit.Size = new Size(59, 24);
+            menuItemEdit.Text = "编辑(&E)";
+            // 
+            // menuItemRename
+            // 
+            menuItemRename.Name = "menuItemRename";
+            menuItemRename.Size = new Size(128, 22);
+            menuItemRename.Text = "重命名(&R)";
+            // 
+            // menuItemDelete
+            // 
+            menuItemDelete.Name = "menuItemDelete";
+            menuItemDelete.Size = new Size(128, 22);
+            menuItemDelete.Text = "删除(&D)";
+            // 
+            // menuItemHelp
+            // 
+            menuItemHelp.DropDownItems.AddRange(new ToolStripItem[] { menuItemAbout });
+            menuItemHelp.Name = "menuItemHelp";
+            menuItemHelp.ShortcutKeyDisplayString = "";
+            menuItemHelp.Size = new Size(61, 24);
+            menuItemHelp.Text = "帮助(&H)";
+            // 
+            // menuItemAbout
+            // 
+            menuItemAbout.Name = "menuItemAbout";
+            menuItemAbout.ShortcutKeyDisplayString = "";
+            menuItemAbout.Size = new Size(180, 22);
+            menuItemAbout.Text = "关于(&A)";
             // 
             // flowLayoutPanel1
             // 
@@ -128,7 +167,7 @@
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(3, 19);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(679, 373);
+            flowLayoutPanel1.Size = new Size(679, 402);
             flowLayoutPanel1.TabIndex = 4;
             // 
             // tableLayoutContent
@@ -159,33 +198,40 @@
             groupBoxControl.Location = new Point(3, 0);
             groupBoxControl.Margin = new Padding(3, 0, 3, 0);
             groupBoxControl.Name = "groupBoxControl";
-            groupBoxControl.Size = new Size(778, 80);
+            groupBoxControl.Size = new Size(778, 51);
             groupBoxControl.TabIndex = 5;
             groupBoxControl.TabStop = false;
-            groupBoxControl.Text = "groupBox1";
+            groupBoxControl.Text = "操作选项";
             // 
             // tableLayoutControl
             // 
             tableLayoutControl.AutoSize = true;
-            tableLayoutControl.ColumnCount = 2;
+            tableLayoutControl.ColumnCount = 9;
             tableLayoutControl.ColumnStyles.Add(new ColumnStyle());
             tableLayoutControl.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutControl.Controls.Add(button10, 1, 1);
-            tableLayoutControl.Controls.Add(button9, 0, 1);
+            tableLayoutControl.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutControl.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutControl.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutControl.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutControl.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutControl.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutControl.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             tableLayoutControl.Controls.Add(button8, 1, 0);
-            tableLayoutControl.Controls.Add(button7, 0, 0);
+            tableLayoutControl.Controls.Add(buttonRefresh, 0, 0);
+            tableLayoutControl.Controls.Add(button9, 2, 0);
+            tableLayoutControl.Controls.Add(button10, 3, 0);
             tableLayoutControl.Dock = DockStyle.Fill;
             tableLayoutControl.Location = new Point(3, 19);
             tableLayoutControl.Name = "tableLayoutControl";
-            tableLayoutControl.RowCount = 2;
+            tableLayoutControl.RowCount = 1;
             tableLayoutControl.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutControl.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutControl.Size = new Size(772, 58);
+            tableLayoutControl.Size = new Size(772, 29);
             tableLayoutControl.TabIndex = 5;
             // 
             // button10
             // 
-            button10.Location = new Point(84, 32);
+            button10.Location = new Point(246, 3);
             button10.Name = "button10";
             button10.Size = new Size(75, 23);
             button10.TabIndex = 8;
@@ -194,7 +240,7 @@
             // 
             // button9
             // 
-            button9.Location = new Point(3, 32);
+            button9.Location = new Point(165, 3);
             button9.Name = "button9";
             button9.Size = new Size(75, 23);
             button9.TabIndex = 7;
@@ -210,24 +256,24 @@
             button8.Text = "button8";
             button8.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // buttonRefresh
             // 
-            button7.Location = new Point(3, 3);
-            button7.Name = "button7";
-            button7.Size = new Size(75, 23);
-            button7.TabIndex = 5;
-            button7.Text = "button7";
-            button7.UseVisualStyleBackColor = true;
+            buttonRefresh.Location = new Point(3, 3);
+            buttonRefresh.Name = "buttonRefresh";
+            buttonRefresh.Size = new Size(75, 23);
+            buttonRefresh.TabIndex = 5;
+            buttonRefresh.Text = "button7";
+            buttonRefresh.UseVisualStyleBackColor = true;
             // 
             // groupBoxControl2
             // 
             groupBoxControl2.AutoSize = true;
             groupBoxControl2.Controls.Add(tableLayoutControl2);
             groupBoxControl2.Dock = DockStyle.Right;
-            groupBoxControl2.Location = new Point(694, 80);
+            groupBoxControl2.Location = new Point(694, 51);
             groupBoxControl2.Margin = new Padding(3, 0, 3, 0);
             groupBoxControl2.Name = "groupBoxControl2";
-            groupBoxControl2.Size = new Size(87, 395);
+            groupBoxControl2.Size = new Size(87, 424);
             groupBoxControl2.TabIndex = 5;
             groupBoxControl2.TabStop = false;
             groupBoxControl2.Text = "groupBox2";
@@ -253,7 +299,7 @@
             tableLayoutControl2.RowStyles.Add(new RowStyle());
             tableLayoutControl2.RowStyles.Add(new RowStyle());
             tableLayoutControl2.RowStyles.Add(new RowStyle());
-            tableLayoutControl2.Size = new Size(81, 373);
+            tableLayoutControl2.Size = new Size(81, 402);
             tableLayoutControl2.TabIndex = 5;
             // 
             // button6
@@ -316,10 +362,10 @@
             groupBoxPicture.AutoSize = true;
             groupBoxPicture.Controls.Add(flowLayoutPanel1);
             groupBoxPicture.Dock = DockStyle.Fill;
-            groupBoxPicture.Location = new Point(3, 80);
+            groupBoxPicture.Location = new Point(3, 51);
             groupBoxPicture.Margin = new Padding(3, 0, 3, 0);
             groupBoxPicture.Name = "groupBoxPicture";
-            groupBoxPicture.Size = new Size(685, 395);
+            groupBoxPicture.Size = new Size(685, 424);
             groupBoxPicture.TabIndex = 0;
             groupBoxPicture.TabStop = false;
             groupBoxPicture.Text = "groupBox1";
@@ -342,45 +388,6 @@
             tableLayoutMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutMain.Size = new Size(784, 521);
             tableLayoutMain.TabIndex = 35;
-            // 
-            // menuItemAbout
-            // 
-            menuItemAbout.Name = "menuItemAbout";
-            menuItemAbout.ShortcutKeyDisplayString = "";
-            menuItemAbout.Size = new Size(180, 22);
-            menuItemAbout.Text = "关于(&A)";
-            // 
-            // menuItemHelp
-            // 
-            menuItemHelp.DropDownItems.AddRange(new ToolStripItem[] { menuItemAbout });
-            menuItemHelp.Name = "menuItemHelp";
-            menuItemHelp.ShortcutKeyDisplayString = "";
-            menuItemHelp.Size = new Size(61, 24);
-            menuItemHelp.Text = "帮助(&H)";
-            // 
-            // menuItemRename
-            // 
-            menuItemRename.Name = "menuItemRename";
-            menuItemRename.Size = new Size(180, 22);
-            menuItemRename.Text = "重命名(&R)";
-            // 
-            // menuItemEdit
-            // 
-            menuItemEdit.DropDownItems.AddRange(new ToolStripItem[] { menuItemRename, menuItemDelete });
-            menuItemEdit.Name = "menuItemEdit";
-            menuItemEdit.Size = new Size(59, 24);
-            menuItemEdit.Text = "编辑(&E)";
-            // 
-            // menuItemDelete
-            // 
-            menuItemDelete.Name = "menuItemDelete";
-            menuItemDelete.Size = new Size(180, 22);
-            menuItemDelete.Text = "删除(&D)";
-            // 
-            // toolStripSeparator1
-            // 
-            toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(177, 6);
             // 
             // FormMain
             // 
@@ -432,7 +439,7 @@
         private GroupBox groupBoxPicture;
         private TableLayoutPanel tableLayoutMain;
         private TableLayoutPanel tableLayoutControl;
-        private Button button7;
+        private Button buttonRefresh;
         private Button button10;
         private Button button9;
         private Button button8;

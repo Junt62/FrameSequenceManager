@@ -20,6 +20,7 @@ namespace FrameSequenceManager {
             if(!Config.IsLibraryExists()) { Config.CreateLibraryFolder(); }
             if(!Config.IsConfigExists() || !Config.IsConfigLegal()) { Config.CreateConfig(Config); }
             else { Config = Config.LoadConfig(); }
+            if(!File.Exists(Config.DatabasePath)) { SQLite sqlite = new(Config.DatabasePath); }
         }
 
         private void Button1_Click(object sender, EventArgs e) {
