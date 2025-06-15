@@ -17,6 +17,7 @@ namespace FrameSequenceManager {
             textBoxLibraryPath.Text = Config.LibraryPath;
             textBoxUsername.Text = Config.Username;
             textBoxPassword.Text = Config.Password;
+            checkBoxAutoLogin.Checked = Config.AutoLogin;
         }
 
         private void ButtonAEPathDetect_Click(object sender, EventArgs e) {
@@ -121,6 +122,11 @@ namespace FrameSequenceManager {
                 }
             }
             MessageBox.Show("错误：用户名或密码错误");
+        }
+
+        private void CheckBoxAutoLogin_CheckedChanged(object sender, EventArgs e) {
+            Config.AutoLogin = checkBoxAutoLogin.Checked;
+            Config.WriteConfig(Config);
         }
     }
 }

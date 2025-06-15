@@ -42,6 +42,7 @@
             labelServerAddress = new Label();
             textBoxServerAddress = new TextBox();
             buttonServerConnect = new Button();
+            checkBoxAutoLogin = new CheckBox();
             tabControlServerManager = new TabControl();
             tabPageAddressSetting = new TabPage();
             tabPageServerSetting = new TabPage();
@@ -176,6 +177,7 @@
             tableLayoutPanelServerSetting.Controls.Add(labelServerAddress, 0, 0);
             tableLayoutPanelServerSetting.Controls.Add(textBoxServerAddress, 1, 0);
             tableLayoutPanelServerSetting.Controls.Add(buttonServerConnect, 2, 0);
+            tableLayoutPanelServerSetting.Controls.Add(checkBoxAutoLogin, 3, 2);
             tableLayoutPanelServerSetting.Dock = DockStyle.Fill;
             tableLayoutPanelServerSetting.Location = new Point(3, 3);
             tableLayoutPanelServerSetting.Name = "tableLayoutPanelServerSetting";
@@ -279,6 +281,19 @@
             buttonServerConnect.Text = "连接";
             buttonServerConnect.UseVisualStyleBackColor = true;
             // 
+            // checkBoxAutoLogin
+            // 
+            checkBoxAutoLogin.AutoSize = true;
+            checkBoxAutoLogin.Checked = true;
+            checkBoxAutoLogin.CheckState = CheckState.Checked;
+            checkBoxAutoLogin.Location = new Point(292, 61);
+            checkBoxAutoLogin.Name = "checkBoxAutoLogin";
+            checkBoxAutoLogin.Size = new Size(75, 21);
+            checkBoxAutoLogin.TabIndex = 11;
+            checkBoxAutoLogin.Text = "自动登录";
+            checkBoxAutoLogin.UseVisualStyleBackColor = true;
+            checkBoxAutoLogin.CheckedChanged += CheckBoxAutoLogin_CheckedChanged;
+            // 
             // tabControlServerManager
             // 
             tabControlServerManager.Controls.Add(tabPageAddressSetting);
@@ -375,5 +390,6 @@
         private TextBox textBoxServerAddress;
         private Label labelServerAddress;
         private TabPage tabPageOther;
+        private CheckBox checkBoxAutoLogin;
     }
 }

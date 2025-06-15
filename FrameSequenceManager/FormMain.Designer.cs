@@ -53,6 +53,12 @@
             button2 = new Button();
             button1 = new Button();
             groupBoxPicture = new GroupBox();
+            groupBoxUserInfo = new GroupBox();
+            tableLayoutPanelUserInfo = new TableLayoutPanel();
+            labelUserInfoUsername2 = new Label();
+            labelUserInfoStatus = new Label();
+            labelUserInfoStatus2 = new Label();
+            labelUserInfoUsername = new Label();
             tableLayoutMain = new TableLayoutPanel();
             statusStrip.SuspendLayout();
             menuStrip.SuspendLayout();
@@ -62,6 +68,8 @@
             groupBoxControl2.SuspendLayout();
             tableLayoutControl2.SuspendLayout();
             groupBoxPicture.SuspendLayout();
+            groupBoxUserInfo.SuspendLayout();
+            tableLayoutPanelUserInfo.SuspendLayout();
             tableLayoutMain.SuspendLayout();
             SuspendLayout();
             // 
@@ -167,7 +175,7 @@
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(3, 19);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(679, 402);
+            flowLayoutPanel1.Size = new Size(648, 391);
             flowLayoutPanel1.TabIndex = 4;
             // 
             // tableLayoutContent
@@ -178,6 +186,7 @@
             tableLayoutContent.Controls.Add(groupBoxControl, 0, 0);
             tableLayoutContent.Controls.Add(groupBoxControl2, 1, 1);
             tableLayoutContent.Controls.Add(groupBoxPicture, 0, 1);
+            tableLayoutContent.Controls.Add(groupBoxUserInfo, 1, 0);
             tableLayoutContent.Dock = DockStyle.Fill;
             tableLayoutContent.Location = new Point(0, 24);
             tableLayoutContent.Margin = new Padding(0);
@@ -192,13 +201,12 @@
             // groupBoxControl
             // 
             groupBoxControl.AutoSize = true;
-            tableLayoutContent.SetColumnSpan(groupBoxControl, 2);
             groupBoxControl.Controls.Add(tableLayoutControl);
             groupBoxControl.Dock = DockStyle.Fill;
             groupBoxControl.Location = new Point(3, 0);
             groupBoxControl.Margin = new Padding(3, 0, 3, 0);
             groupBoxControl.Name = "groupBoxControl";
-            groupBoxControl.Size = new Size(778, 51);
+            groupBoxControl.Size = new Size(654, 62);
             groupBoxControl.TabIndex = 5;
             groupBoxControl.TabStop = false;
             groupBoxControl.Text = "操作选项";
@@ -226,7 +234,7 @@
             tableLayoutControl.RowCount = 1;
             tableLayoutControl.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutControl.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutControl.Size = new Size(772, 29);
+            tableLayoutControl.Size = new Size(648, 40);
             tableLayoutControl.TabIndex = 5;
             // 
             // button8
@@ -269,11 +277,11 @@
             // 
             groupBoxControl2.AutoSize = true;
             groupBoxControl2.Controls.Add(tableLayoutControl2);
-            groupBoxControl2.Dock = DockStyle.Right;
-            groupBoxControl2.Location = new Point(694, 51);
+            groupBoxControl2.Dock = DockStyle.Fill;
+            groupBoxControl2.Location = new Point(663, 62);
             groupBoxControl2.Margin = new Padding(3, 0, 3, 0);
             groupBoxControl2.Name = "groupBoxControl2";
-            groupBoxControl2.Size = new Size(87, 424);
+            groupBoxControl2.Size = new Size(118, 413);
             groupBoxControl2.TabIndex = 5;
             groupBoxControl2.TabStop = false;
             groupBoxControl2.Text = "groupBox2";
@@ -299,59 +307,65 @@
             tableLayoutControl2.RowStyles.Add(new RowStyle());
             tableLayoutControl2.RowStyles.Add(new RowStyle());
             tableLayoutControl2.RowStyles.Add(new RowStyle());
-            tableLayoutControl2.Size = new Size(81, 402);
+            tableLayoutControl2.Size = new Size(112, 391);
             tableLayoutControl2.TabIndex = 5;
             // 
             // button6
             // 
+            button6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button6.Location = new Point(3, 148);
             button6.Name = "button6";
-            button6.Size = new Size(75, 23);
+            button6.Size = new Size(106, 23);
             button6.TabIndex = 5;
             button6.Text = "button6";
             button6.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
+            button5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button5.Location = new Point(3, 119);
             button5.Name = "button5";
-            button5.Size = new Size(75, 23);
+            button5.Size = new Size(106, 23);
             button5.TabIndex = 4;
             button5.Text = "button5";
             button5.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
+            button4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button4.Location = new Point(3, 90);
             button4.Name = "button4";
-            button4.Size = new Size(75, 23);
+            button4.Size = new Size(106, 23);
             button4.TabIndex = 3;
             button4.Text = "button4";
             button4.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
+            button3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button3.Location = new Point(3, 61);
             button3.Name = "button3";
-            button3.Size = new Size(75, 23);
+            button3.Size = new Size(106, 23);
             button3.TabIndex = 2;
             button3.Text = "button3";
             button3.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
+            button2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button2.Location = new Point(3, 32);
             button2.Name = "button2";
-            button2.Size = new Size(75, 23);
+            button2.Size = new Size(106, 23);
             button2.TabIndex = 1;
             button2.Text = "button2";
             button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
+            button1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button1.Location = new Point(3, 3);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(106, 23);
             button1.TabIndex = 0;
             button1.Text = "导入AE";
             button1.UseVisualStyleBackColor = true;
@@ -362,13 +376,84 @@
             groupBoxPicture.AutoSize = true;
             groupBoxPicture.Controls.Add(flowLayoutPanel1);
             groupBoxPicture.Dock = DockStyle.Fill;
-            groupBoxPicture.Location = new Point(3, 51);
+            groupBoxPicture.Location = new Point(3, 62);
             groupBoxPicture.Margin = new Padding(3, 0, 3, 0);
             groupBoxPicture.Name = "groupBoxPicture";
-            groupBoxPicture.Size = new Size(685, 424);
+            groupBoxPicture.Size = new Size(654, 413);
             groupBoxPicture.TabIndex = 0;
             groupBoxPicture.TabStop = false;
             groupBoxPicture.Text = "groupBox1";
+            // 
+            // groupBoxUserInfo
+            // 
+            groupBoxUserInfo.AutoSize = true;
+            groupBoxUserInfo.Controls.Add(tableLayoutPanelUserInfo);
+            groupBoxUserInfo.Dock = DockStyle.Fill;
+            groupBoxUserInfo.Location = new Point(663, 3);
+            groupBoxUserInfo.Name = "groupBoxUserInfo";
+            groupBoxUserInfo.Size = new Size(118, 56);
+            groupBoxUserInfo.TabIndex = 6;
+            groupBoxUserInfo.TabStop = false;
+            groupBoxUserInfo.Text = "用户信息";
+            // 
+            // tableLayoutPanelUserInfo
+            // 
+            tableLayoutPanelUserInfo.AutoSize = true;
+            tableLayoutPanelUserInfo.ColumnCount = 2;
+            tableLayoutPanelUserInfo.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanelUserInfo.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanelUserInfo.Controls.Add(labelUserInfoUsername2, 1, 0);
+            tableLayoutPanelUserInfo.Controls.Add(labelUserInfoStatus, 0, 1);
+            tableLayoutPanelUserInfo.Controls.Add(labelUserInfoStatus2, 1, 1);
+            tableLayoutPanelUserInfo.Controls.Add(labelUserInfoUsername, 0, 0);
+            tableLayoutPanelUserInfo.Dock = DockStyle.Fill;
+            tableLayoutPanelUserInfo.Location = new Point(3, 19);
+            tableLayoutPanelUserInfo.Name = "tableLayoutPanelUserInfo";
+            tableLayoutPanelUserInfo.RowCount = 2;
+            tableLayoutPanelUserInfo.RowStyles.Add(new RowStyle());
+            tableLayoutPanelUserInfo.RowStyles.Add(new RowStyle());
+            tableLayoutPanelUserInfo.Size = new Size(112, 34);
+            tableLayoutPanelUserInfo.TabIndex = 1;
+            // 
+            // labelUserInfoUsername2
+            // 
+            labelUserInfoUsername2.AutoSize = true;
+            labelUserInfoUsername2.BackColor = SystemColors.Control;
+            labelUserInfoUsername2.Location = new Point(65, 0);
+            labelUserInfoUsername2.Name = "labelUserInfoUsername2";
+            labelUserInfoUsername2.Size = new Size(40, 17);
+            labelUserInfoUsername2.TabIndex = 1;
+            labelUserInfoUsername2.Text = "user1";
+            // 
+            // labelUserInfoStatus
+            // 
+            labelUserInfoStatus.AutoSize = true;
+            labelUserInfoStatus.BackColor = SystemColors.Control;
+            labelUserInfoStatus.Location = new Point(3, 17);
+            labelUserInfoStatus.Name = "labelUserInfoStatus";
+            labelUserInfoStatus.Size = new Size(56, 17);
+            labelUserInfoStatus.TabIndex = 2;
+            labelUserInfoStatus.Text = "状   态：";
+            // 
+            // labelUserInfoStatus2
+            // 
+            labelUserInfoStatus2.AutoSize = true;
+            labelUserInfoStatus2.BackColor = SystemColors.Control;
+            labelUserInfoStatus2.ForeColor = Color.Red;
+            labelUserInfoStatus2.Location = new Point(65, 17);
+            labelUserInfoStatus2.Name = "labelUserInfoStatus2";
+            labelUserInfoStatus2.Size = new Size(44, 17);
+            labelUserInfoStatus2.TabIndex = 3;
+            labelUserInfoStatus2.Text = "未登录";
+            // 
+            // labelUserInfoUsername
+            // 
+            labelUserInfoUsername.AutoSize = true;
+            labelUserInfoUsername.Location = new Point(3, 0);
+            labelUserInfoUsername.Name = "labelUserInfoUsername";
+            labelUserInfoUsername.Size = new Size(56, 17);
+            labelUserInfoUsername.TabIndex = 0;
+            labelUserInfoUsername.Text = "用户名：";
             // 
             // tableLayoutMain
             // 
@@ -414,6 +499,10 @@
             tableLayoutControl2.ResumeLayout(false);
             groupBoxPicture.ResumeLayout(false);
             groupBoxPicture.PerformLayout();
+            groupBoxUserInfo.ResumeLayout(false);
+            groupBoxUserInfo.PerformLayout();
+            tableLayoutPanelUserInfo.ResumeLayout(false);
+            tableLayoutPanelUserInfo.PerformLayout();
             tableLayoutMain.ResumeLayout(false);
             tableLayoutMain.PerformLayout();
             ResumeLayout(false);
@@ -453,5 +542,11 @@
         private ToolStripMenuItem menuItemDelete;
         private ToolStripMenuItem menuItemHelp;
         private ToolStripMenuItem menuItemAbout;
+        private GroupBox groupBoxUserInfo;
+        private TableLayoutPanel tableLayoutPanelUserInfo;
+        private Label labelUserInfoUsername;
+        private Label labelUserInfoStatus;
+        private Label labelUserInfoStatus2;
+        private Label labelUserInfoUsername2;
     }
 }
